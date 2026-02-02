@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Zen</title>
+    <title>Mini Zen - Glamorous Edition</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;500;600&family=Cinzel:wght@400;700&display=swap');
         
         * {
             margin: 0;
@@ -14,30 +14,43 @@
         }
         
         :root {
-            --primary: #ff6b9d;
-            --secondary: #c44569;
-            --accent1: #ffa502;
-            --accent2: #ff6348;
-            --accent3: #a29bfe;
-            --accent4: #fd79a8;
-            --bg1: #ffeaa7;
-            --bg2: #fdcb6e;
-            --bg3: #fab1a0;
-            --bg4: #ff7675;
-            --soft-white: #fff5f5;
+            --primary: #ff1493;
+            --secondary: #ff69b4;
+            --accent1: #ffd700;
+            --accent2: #ff6b9d;
+            --accent3: #9370db;
+            --accent4: #ff1493;
+            --neon-pink: #ff10f0;
+            --neon-purple: #b010ff;
+            --gold: #ffd700;
         }
         
         body {
             margin: 0;
             overflow: hidden;
             font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(-45deg, #ffeef8, #fff0f5, #f0f8ff, #f5f0ff, #fffaef);
-            background-size: 400% 400%;
-            animation: gradientShift 20s ease infinite;
+            background: #0a0015;
             height: 100vh;
             cursor: pointer;
             user-select: none;
             -webkit-user-select: none;
+            position: relative;
+        }
+        
+        /* Animated gradient background */
+        .background-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(-45deg, #1a0033, #330033, #4d0066, #1a0033, #660033, #330066);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
         }
         
         @keyframes gradientShift {
@@ -46,13 +59,141 @@
             100% { background-position: 0% 50%; }
         }
         
+        /* Starfield */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 60px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 50px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 10px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            animation: twinkle 5s ease-in-out infinite;
+            opacity: 0.5;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        /* Rose petals background */
+        .rose-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 15 Q 35 10, 40 15 T 45 30 Q 40 35, 30 40 Q 20 35, 15 30 T 20 15 Q 25 10, 30 15 Z' fill='%23ff1493' opacity='0.1'/%3E%3C/svg%3E");
+            background-size: 60px 60px;
+            animation: floatPattern 20s linear infinite;
+            opacity: 0.3;
+        }
+        
+        @keyframes floatPattern {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+        
+        /* Diamond sparkles */
+        .diamond-sparkle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 20, 147, 0.2) 0%, transparent 50%);
+            animation: sparkleMove 10s ease-in-out infinite;
+        }
+        
+        @keyframes sparkleMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(20px, 20px) scale(1.1); }
+        }
+        
+        /* Neon glow circles */
+        .neon-circles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .neon-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: floatNeon 20s ease-in-out infinite;
+        }
+        
+        .neon-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 16, 240, 0.4), transparent);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .neon-circle:nth-child(2) {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(176, 16, 255, 0.3), transparent);
+            top: 50%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+        
+        .neon-circle:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent);
+            bottom: 10%;
+            left: 30%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes floatNeon {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -30px) scale(1.1); }
+            66% { transform: translate(-30px, 50px) scale(0.9); }
+        }
+        
+        /* Luxury golden particles */
+        .golden-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .golden-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ffd700;
+            animation: fallDown linear infinite;
+        }
+        
+        @keyframes fallDown {
+            0% { transform: translateY(-10px) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) translateX(100px); opacity: 0; }
+        }
+        
         #canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 5;
         }
         
         .cloud-container {
@@ -62,15 +203,15 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 2;
+            z-index: 3;
             overflow: hidden;
         }
         
         .cloud {
             position: absolute;
-            background: rgba(255, 255, 255, 0.35);
+            background: rgba(255, 20, 147, 0.2);
             border-radius: 200px;
-            filter: blur(50px);
+            filter: blur(60px);
             animation: drift linear infinite;
         }
         
@@ -80,6 +221,7 @@
             top: 5%;
             left: -400px;
             animation-duration: 40s;
+            background: rgba(255, 20, 147, 0.25);
         }
         
         .cloud:nth-child(2) {
@@ -89,6 +231,7 @@
             left: -500px;
             animation-duration: 55s;
             animation-delay: 8s;
+            background: rgba(147, 112, 219, 0.2);
         }
         
         .cloud:nth-child(3) {
@@ -98,6 +241,7 @@
             left: -350px;
             animation-duration: 45s;
             animation-delay: 15s;
+            background: rgba(255, 215, 0, 0.15);
         }
         
         .cloud:nth-child(4) {
@@ -107,6 +251,7 @@
             left: -450px;
             animation-duration: 50s;
             animation-delay: 3s;
+            background: rgba(255, 105, 180, 0.2);
         }
         
         @keyframes drift {
@@ -121,10 +266,10 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 3;
+            z-index: 6;
         }
         
-        /* Flower styles */
+        /* Enhanced Flower styles */
         .flower {
             position: absolute;
             width: 0;
@@ -134,42 +279,42 @@
         
         .petal {
             position: absolute;
-            width: 35px;
-            height: 35px;
-            background: radial-gradient(circle at 30% 30%, rgba(255, 107, 157, 0.95), rgba(196, 69, 105, 0.85));
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 20, 147, 0.95), rgba(255, 105, 180, 0.85));
             border-radius: 50% 0 50% 0;
             transform-origin: bottom right;
             opacity: 0;
-            box-shadow: 0 4px 20px rgba(255, 107, 157, 0.4);
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.3);
         }
         
-        .petal:nth-child(1) { transform: rotate(0deg) translate(-17px, -17px); }
-        .petal:nth-child(2) { transform: rotate(72deg) translate(-17px, -17px); background: radial-gradient(circle at 30% 30%, rgba(253, 121, 168, 0.95), rgba(196, 69, 105, 0.85)); }
-        .petal:nth-child(3) { transform: rotate(144deg) translate(-17px, -17px); background: radial-gradient(circle at 30% 30%, rgba(255, 99, 72, 0.95), rgba(196, 69, 105, 0.85)); }
-        .petal:nth-child(4) { transform: rotate(216deg) translate(-17px, -17px); background: radial-gradient(circle at 30% 30%, rgba(255, 165, 2, 0.95), rgba(196, 69, 105, 0.85)); }
-        .petal:nth-child(5) { transform: rotate(288deg) translate(-17px, -17px); background: radial-gradient(circle at 30% 30%, rgba(162, 155, 254, 0.95), rgba(196, 69, 105, 0.85)); }
+        .petal:nth-child(1) { transform: rotate(0deg) translate(-20px, -20px); }
+        .petal:nth-child(2) { transform: rotate(72deg) translate(-20px, -20px); background: radial-gradient(circle at 30% 30%, rgba(255, 16, 240, 0.95), rgba(176, 16, 255, 0.85)); }
+        .petal:nth-child(3) { transform: rotate(144deg) translate(-20px, -20px); background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.95), rgba(255, 165, 0, 0.85)); }
+        .petal:nth-child(4) { transform: rotate(216deg) translate(-20px, -20px); background: radial-gradient(circle at 30% 30%, rgba(255, 105, 180, 0.95), rgba(255, 20, 147, 0.85)); }
+        .petal:nth-child(5) { transform: rotate(288deg) translate(-20px, -20px); background: radial-gradient(circle at 30% 30%, rgba(147, 112, 219, 0.95), rgba(138, 43, 226, 0.85)); }
         
         .center {
             position: absolute;
-            width: 18px;
-            height: 18px;
-            background: radial-gradient(circle, rgba(255, 230, 167, 0.95), rgba(253, 203, 110, 0.9));
+            width: 22px;
+            height: 22px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 1), rgba(255, 165, 0, 0.95));
             border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            box-shadow: 0 2px 15px rgba(255, 230, 167, 0.6);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.9), inset 0 0 10px rgba(255, 255, 255, 0.5);
         }
         
         @keyframes bloom {
             0% { opacity: 0; transform: scale(0) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+            50% { opacity: 1; transform: scale(1.4) rotate(180deg); }
             100% { opacity: 0; transform: scale(0.7) rotate(360deg); }
         }
         
         @keyframes centerBloom {
             0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-            40% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
+            40% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
             100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
         }
         
@@ -188,13 +333,14 @@
             animation-delay: 0.3s;
         }
         
-        /* Heart styles */
+        /* Enhanced Heart styles */
         .heart {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             pointer-events: none;
-            animation: heartFloat 2s ease-out forwards;
+            animation: heartFloat 2.5s ease-out forwards;
+            filter: drop-shadow(0 0 20px rgba(255, 20, 147, 0.9));
         }
         
         .heart::before,
@@ -202,15 +348,15 @@
             content: "";
             position: absolute;
             top: 0;
-            width: 26px;
-            height: 40px;
-            background: linear-gradient(135deg, #ff6b9d, #c44569);
-            border-radius: 26px 26px 0 0;
-            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.5);
+            width: 32px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4, #ff10f0);
+            border-radius: 32px 32px 0 0;
+            box-shadow: 0 0 30px rgba(255, 20, 147, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.3);
         }
         
         .heart::before {
-            left: 20px;
+            left: 25px;
             transform: rotate(-45deg);
             transform-origin: 0 100%;
         }
@@ -223,58 +369,59 @@
         
         @keyframes heartFloat {
             0% { opacity: 0; transform: translateY(0) scale(0); }
-            30% { opacity: 1; transform: translateY(-30px) scale(1.2); }
-            100% { opacity: 0; transform: translateY(-150px) scale(0.5) rotate(360deg); }
+            30% { opacity: 1; transform: translateY(-40px) scale(1.3); }
+            100% { opacity: 0; transform: translateY(-180px) scale(0.5) rotate(360deg); }
         }
         
-        /* Star styles */
+        /* Enhanced Star styles */
         .star {
             position: absolute;
             width: 0;
             height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 25px solid #ffa502;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-bottom: 30px solid #ffd700;
             pointer-events: none;
-            animation: starTwinkle 1.5s ease-out forwards;
-            filter: drop-shadow(0 0 10px rgba(255, 165, 2, 0.8));
+            animation: starTwinkle 2s ease-out forwards;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1)) drop-shadow(0 0 30px rgba(255, 215, 0, 0.8));
         }
         
         .star::after {
             content: "";
             position: absolute;
-            top: 8px;
-            left: -15px;
+            top: 10px;
+            left: -18px;
             width: 0;
             height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-top: 25px solid #ffa502;
+            border-left: 18px solid transparent;
+            border-right: 18px solid transparent;
+            border-top: 30px solid #ffd700;
         }
         
         @keyframes starTwinkle {
             0% { opacity: 0; transform: scale(0) rotate(0deg); }
-            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+            50% { opacity: 1; transform: scale(1.8) rotate(180deg); }
             100% { opacity: 0; transform: scale(0) rotate(360deg); }
         }
         
-        /* Butterfly styles */
+        /* Enhanced Butterfly styles */
         .butterfly {
             position: absolute;
-            width: 50px;
-            height: 40px;
+            width: 60px;
+            height: 50px;
             pointer-events: none;
-            animation: butterflyFly 3s ease-out forwards;
+            animation: butterflyFly 3.5s ease-out forwards;
+            filter: drop-shadow(0 0 15px rgba(176, 16, 255, 0.8));
         }
         
         .butterfly-wing {
             position: absolute;
-            width: 25px;
-            height: 35px;
-            background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+            width: 30px;
+            height: 42px;
+            background: linear-gradient(135deg, #b010ff, #ff10f0, #ffd700);
             border-radius: 50% 50% 50% 0;
-            box-shadow: 0 3px 15px rgba(162, 155, 254, 0.5);
-            animation: wingFlap 0.3s infinite;
+            box-shadow: 0 0 20px rgba(176, 16, 255, 0.7), inset 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: wingFlap 0.25s infinite;
         }
         
         .butterfly-wing.left {
@@ -290,27 +437,66 @@
         
         @keyframes wingFlap {
             0%, 100% { transform: scaleY(1); }
-            50% { transform: scaleY(0.8); }
+            50% { transform: scaleY(0.75); }
         }
         
         @keyframes butterflyFly {
             0% { opacity: 0; transform: translate(0, 0) scale(0); }
-            20% { opacity: 1; transform: translate(20px, -40px) scale(1); }
-            100% { opacity: 0; transform: translate(100px, -200px) scale(0.5); }
+            20% { opacity: 1; transform: translate(30px, -50px) scale(1.1); }
+            100% { opacity: 0; transform: translate(120px, -250px) scale(0.5); }
         }
         
-        /* Circle pulse */
+        /* Enhanced Circle pulse */
         .circle-pulse {
             position: absolute;
             border-radius: 50%;
-            border: 3px solid #ff6348;
+            border: 4px solid #ff10f0;
             pointer-events: none;
-            animation: circlePulse 2s ease-out forwards;
+            animation: circlePulse 2.5s ease-out forwards;
+            box-shadow: 0 0 30px rgba(255, 16, 240, 0.8), inset 0 0 30px rgba(255, 16, 240, 0.5);
         }
         
         @keyframes circlePulse {
             0% { width: 0; height: 0; opacity: 1; }
-            100% { width: 300px; height: 300px; opacity: 0; }
+            100% { width: 350px; height: 350px; opacity: 0; }
+        }
+        
+        /* Diamond effect */
+        .diamond {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            animation: diamondShine 2s ease-out forwards;
+        }
+        
+        .diamond::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 30px solid #ffd700;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+        }
+        
+        .diamond::after {
+            content: "";
+            position: absolute;
+            top: 30px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #ffd700;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1));
+        }
+        
+        @keyframes diamondShine {
+            0% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.5) rotate(180deg); }
+            100% { opacity: 0; transform: scale(0) rotate(360deg); }
         }
         
         .touch-instruction {
@@ -318,18 +504,21 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: 'Pacifico', cursive;
-            font-size: 42px;
-            font-weight: 400;
-            color: rgba(255, 107, 157, 0.85);
+            font-family: 'Cinzel', serif;
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff1493, #ffd700, #ff10f0, #b010ff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             z-index: 10;
             text-align: center;
             pointer-events: none;
             text-shadow: 
-                0 0 25px rgba(255, 182, 193, 0.8),
-                0 2px 15px rgba(255, 255, 255, 0.9),
-                2px 2px 8px rgba(196, 69, 105, 0.4);
-            animation: touchBounce 2s ease-in-out infinite;
+                0 0 40px rgba(255, 20, 147, 0.8),
+                0 0 60px rgba(255, 215, 0, 0.6);
+            animation: touchBounce 2s ease-in-out infinite, gradientShift 3s ease infinite;
             opacity: 1;
             transition: opacity 1.5s ease-out;
         }
@@ -341,21 +530,22 @@
         
         @keyframes touchBounce {
             0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -45%) scale(1.08); }
+            50% { transform: translate(-50%, -45%) scale(1.1); }
         }
         
         .signature {
             position: fixed;
-            bottom: 25px;
-            right: 30px;
-            font-family: 'Pacifico', cursive;
-            font-size: 14px;
-            color: rgba(255, 107, 157, 0.75);
+            bottom: 30px;
+            right: 35px;
+            font-family: 'Cinzel', serif;
+            font-size: 16px;
+            background: linear-gradient(45deg, #ffd700, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             z-index: 10;
-            letter-spacing: 1px;
-            text-shadow: 
-                0 0 10px rgba(255, 182, 193, 0.5),
-                1px 1px 5px rgba(255, 255, 255, 0.7);
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
             pointer-events: none;
         }
         
@@ -369,23 +559,32 @@
         
         @media (max-width: 768px) {
             .touch-instruction {
-                font-size: 32px;
+                font-size: 36px;
             }
             
             .signature {
-                font-size: 11px;
-                bottom: 20px;
-                right: 25px;
-            }
-            
-            .ad-container {
-                top: 10px;
-                left: 10px;
+                font-size: 12px;
+                bottom: 25px;
+                right: 30px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Background layers -->
+    <div class="background-layer gradient-bg"></div>
+    <div class="background-layer stars"></div>
+    <div class="background-layer rose-pattern"></div>
+    <div class="background-layer diamond-sparkle"></div>
+    
+    <div class="neon-circles">
+        <div class="neon-circle"></div>
+        <div class="neon-circle"></div>
+        <div class="neon-circle"></div>
+    </div>
+    
+    <div class="golden-particles" id="goldenParticles"></div>
+    
     <canvas id="canvas"></canvas>
     
     <div class="cloud-container">
@@ -402,14 +601,25 @@
         <div id="container-4ee5db287b7478a02b518b364536ad06"></div>
     </div>
     
-    <div class="touch-instruction" id="touchInstruction">Touch Screen 💖</div>
-    <div class="signature">Designer by Jelly Officer</div>
+    <div class="touch-instruction" id="touchInstruction">✨ Touch & Feel Magic ✨</div>
+    <div class="signature">Glamorous by Jelly Officer</div>
 
     <script>
-        // Sound generation
+        // Create golden particles
+        const goldenParticlesContainer = document.getElementById('goldenParticles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'golden-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            goldenParticlesContainer.appendChild(particle);
+        }
+        
+        // Enhanced sound generation with pleasant tones
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         
-        function playSound(freq, duration, type = 'sine') {
+        function playSound(freq, duration, type = 'sine', vibrato = false) {
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
             
@@ -417,9 +627,15 @@
             gainNode.connect(audioContext.destination);
             
             oscillator.frequency.setValueAtTime(freq, audioContext.currentTime);
-            oscillator.frequency.exponentialRampToValueAtTime(freq * 0.5, audioContext.currentTime + duration);
             
-            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            if (vibrato) {
+                oscillator.frequency.exponentialRampToValueAtTime(freq * 1.2, audioContext.currentTime + duration/2);
+                oscillator.frequency.exponentialRampToValueAtTime(freq * 0.8, audioContext.currentTime + duration);
+            } else {
+                oscillator.frequency.exponentialRampToValueAtTime(freq * 0.6, audioContext.currentTime + duration);
+            }
+            
+            gainNode.gain.setValueAtTime(0.25, audioContext.currentTime);
             gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
             
             oscillator.type = type;
@@ -428,28 +644,44 @@
         }
         
         function playClickSound() {
-            playSound(800, 0.3, 'sine');
+            playSound(1000, 0.4, 'sine', true);
         }
         
         function playBloomSound() {
-            playSound(600, 0.5, 'triangle');
+            playSound(800, 0.6, 'triangle', true);
+            setTimeout(() => playSound(1000, 0.4, 'sine'), 100);
         }
         
         function playHeartSound() {
-            playSound(700, 0.4, 'sine');
+            playSound(900, 0.5, 'sine', true);
+            setTimeout(() => playSound(700, 0.3, 'triangle'), 150);
         }
         
         function playStarSound() {
-            playSound(1200, 0.2, 'square');
+            playSound(1400, 0.25, 'square');
+            setTimeout(() => playSound(1600, 0.2, 'sine'), 100);
         }
         
         function playButterflySound() {
-            playSound(900, 0.6, 'triangle');
+            playSound(1100, 0.7, 'triangle', true);
+            setTimeout(() => playSound(900, 0.5, 'sine'), 200);
+        }
+        
+        function playDiamondSound() {
+            playSound(1600, 0.3, 'sine');
+            setTimeout(() => playSound(2000, 0.2, 'triangle'), 100);
         }
         
         function playSparkle() {
-            const freq = 1000 + Math.random() * 1000;
-            playSound(freq, 0.1, 'sine');
+            const freq = 1200 + Math.random() * 1200;
+            playSound(freq, 0.15, 'sine');
+        }
+        
+        function playMagicChime() {
+            const notes = [1047, 1319, 1568, 2093]; // C major chord
+            notes.forEach((note, i) => {
+                setTimeout(() => playSound(note, 0.3, 'sine'), i * 80);
+            });
         }
         
         // Canvas setup
@@ -464,34 +696,36 @@
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
         
-        // Particle system
+        // Enhanced particle system
         const particles = [];
         const sparkles = [];
         const ripples = [];
         const colorBursts = [];
+        const trails = [];
         
         class Particle {
             constructor(x, y, color) {
                 this.x = x;
                 this.y = y;
-                this.vx = (Math.random() - 0.5) * 6;
-                this.vy = (Math.random() - 0.5) * 6 - 3;
+                this.vx = (Math.random() - 0.5) * 8;
+                this.vy = (Math.random() - 0.5) * 8 - 4;
                 this.life = 1;
-                this.size = Math.random() * 8 + 4;
+                this.size = Math.random() * 10 + 5;
                 this.color = color || this.getRandomColor();
-                this.gravity = 0.15;
+                this.gravity = 0.18;
                 this.rotation = Math.random() * Math.PI * 2;
-                this.rotationSpeed = (Math.random() - 0.5) * 0.2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.25;
+                this.glowIntensity = Math.random() * 20 + 20;
             }
             
             getRandomColor() {
                 const colors = [
-                    'rgba(255, 107, 157, 0.9)',
-                    'rgba(255, 165, 2, 0.9)',
-                    'rgba(255, 99, 72, 0.9)',
-                    'rgba(162, 155, 254, 0.9)',
-                    'rgba(253, 121, 168, 0.9)',
-                    'rgba(255, 230, 167, 0.9)'
+                    'rgba(255, 20, 147, 0.95)',
+                    'rgba(255, 215, 0, 0.95)',
+                    'rgba(255, 16, 240, 0.95)',
+                    'rgba(176, 16, 255, 0.95)',
+                    'rgba(255, 105, 180, 0.95)',
+                    'rgba(147, 112, 219, 0.95)'
                 ];
                 return colors[Math.floor(Math.random() * colors.length)];
             }
@@ -501,24 +735,23 @@
                 this.y += this.vy;
                 this.vy += this.gravity;
                 this.vx *= 0.98;
-                this.life -= 0.015;
+                this.life -= 0.012;
                 this.size *= 0.97;
                 this.rotation += this.rotationSpeed;
             }
             
             draw() {
-                if (this.size <= 0) return; // Prevent negative size
+                if (this.size <= 0) return;
                 
                 ctx.save();
                 ctx.translate(this.x, this.y);
                 ctx.rotate(this.rotation);
                 ctx.globalAlpha = this.life;
                 
-                ctx.fillStyle = this.color;
-                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
-                
-                ctx.shadowBlur = 15;
+                ctx.shadowBlur = this.glowIntensity;
                 ctx.shadowColor = this.color;
+                
+                ctx.fillStyle = this.color;
                 ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
                 
                 ctx.restore();
@@ -533,32 +766,34 @@
             constructor(x, y) {
                 this.x = x;
                 this.y = y;
-                this.size = Math.random() * 4 + 3;
+                this.size = Math.random() * 5 + 4;
                 this.life = 1;
                 this.rotation = Math.random() * Math.PI * 2;
-                this.rotationSpeed = (Math.random() - 0.5) * 0.3;
-                this.vx = (Math.random() - 0.5) * 2;
-                this.vy = (Math.random() - 0.5) * 2 - 1;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.4;
+                this.vx = (Math.random() - 0.5) * 3;
+                this.vy = (Math.random() - 0.5) * 3 - 2;
             }
             
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-                this.life -= 0.025;
+                this.life -= 0.02;
                 this.rotation += this.rotationSpeed;
                 this.size *= 0.96;
             }
             
             draw() {
-                if (this.size <= 0) return; // Prevent negative size
+                if (this.size <= 0) return;
                 
                 ctx.save();
                 ctx.translate(this.x, this.y);
                 ctx.rotate(this.rotation);
                 ctx.globalAlpha = this.life;
                 
+                ctx.shadowBlur = 25;
+                ctx.shadowColor = 'rgba(255, 255, 255, 1)';
                 ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
-                ctx.lineWidth = 2.5;
+                ctx.lineWidth = 3;
                 
                 ctx.beginPath();
                 ctx.moveTo(0, -this.size);
@@ -594,10 +829,10 @@
                 this.x = x;
                 this.y = y;
                 this.radius = 0;
-                this.maxRadius = 180;
-                this.speed = 4;
+                this.maxRadius = 200;
+                this.speed = 5;
                 this.opacity = 1;
-                this.color = color || 'rgba(255, 255, 255, 0.6)';
+                this.color = color || 'rgba(255, 16, 240, 0.8)';
             }
             
             update() {
@@ -606,12 +841,14 @@
             }
             
             draw() {
-                if (this.radius <= 0) return; // Prevent negative radius
+                if (this.radius <= 0) return;
                 
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
                 ctx.strokeStyle = this.color;
-                ctx.lineWidth = 4 * this.opacity;
+                ctx.lineWidth = 5 * this.opacity;
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = this.color;
                 ctx.globalAlpha = this.opacity;
                 ctx.stroke();
                 ctx.globalAlpha = 1;
@@ -627,13 +864,13 @@
                 this.x = x;
                 this.y = y;
                 this.radius = 0;
-                this.maxRadius = 100;
-                this.speed = 5;
+                this.maxRadius = 120;
+                this.speed = 6;
                 this.life = 1;
                 this.colors = [
-                    'rgba(255, 107, 157, 0.5)',
-                    'rgba(255, 165, 2, 0.5)',
-                    'rgba(162, 155, 254, 0.5)'
+                    'rgba(255, 20, 147, 0.6)',
+                    'rgba(255, 215, 0, 0.6)',
+                    'rgba(176, 16, 255, 0.6)'
                 ];
             }
             
@@ -643,15 +880,17 @@
             }
             
             draw() {
-                if (this.radius <= 0) return; // Prevent negative radius
+                if (this.radius <= 0) return;
                 
                 this.colors.forEach((color, index) => {
-                    const r = this.radius - (index * 15);
-                    if (r > 0) { // Only draw if radius is positive
+                    const r = this.radius - (index * 18);
+                    if (r > 0) {
                         ctx.beginPath();
                         ctx.arc(this.x, this.y, r, 0, Math.PI * 2);
                         ctx.strokeStyle = color;
-                        ctx.lineWidth = 4;
+                        ctx.lineWidth = 5;
+                        ctx.shadowBlur = 20;
+                        ctx.shadowColor = color;
                         ctx.globalAlpha = this.life;
                         ctx.stroke();
                     }
@@ -664,11 +903,49 @@
             }
         }
         
+        class Trail {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.life = 1;
+                this.size = Math.random() * 15 + 10;
+                this.color = 'rgba(255, 215, 0, 0.8)';
+            }
+            
+            update() {
+                this.life -= 0.03;
+                this.size *= 0.95;
+            }
+            
+            draw() {
+                if (this.size <= 0) return;
+                
+                ctx.save();
+                ctx.globalAlpha = this.life;
+                ctx.shadowBlur = 30;
+                ctx.shadowColor = this.color;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+            
+            isAlive() {
+                return this.life > 0;
+            }
+        }
+        
         // Animation loop
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Update and draw all effects
+            for (let i = trails.length - 1; i >= 0; i--) {
+                trails[i].update();
+                trails[i].draw();
+                if (!trails[i].isAlive()) trails.splice(i, 1);
+            }
+            
             for (let i = colorBursts.length - 1; i >= 0; i--) {
                 colorBursts[i].update();
                 colorBursts[i].draw();
@@ -698,10 +975,8 @@
         
         animate();
         
-        // Effects container
         const effectsContainer = document.getElementById('effectsContainer');
         
-        // Different effect types
         function createFlower(x, y) {
             const flower = document.createElement('div');
             flower.className = 'flower';
@@ -719,7 +994,6 @@
             flower.appendChild(center);
             
             effectsContainer.appendChild(flower);
-            
             setTimeout(() => flower.classList.add('blooming'), 10);
             setTimeout(() => effectsContainer.removeChild(flower), 3000);
             
@@ -729,11 +1003,11 @@
         function createHeart(x, y) {
             const heart = document.createElement('div');
             heart.className = 'heart';
-            heart.style.left = (x - 20) + 'px';
-            heart.style.top = (y - 20) + 'px';
+            heart.style.left = (x - 25) + 'px';
+            heart.style.top = (y - 25) + 'px';
             
             effectsContainer.appendChild(heart);
-            setTimeout(() => effectsContainer.removeChild(heart), 2000);
+            setTimeout(() => effectsContainer.removeChild(heart), 2500);
             
             playHeartSound();
         }
@@ -745,7 +1019,7 @@
             star.style.top = y + 'px';
             
             effectsContainer.appendChild(star);
-            setTimeout(() => effectsContainer.removeChild(star), 1500);
+            setTimeout(() => effectsContainer.removeChild(star), 2000);
             
             playStarSound();
         }
@@ -753,8 +1027,8 @@
         function createButterfly(x, y) {
             const butterfly = document.createElement('div');
             butterfly.className = 'butterfly';
-            butterfly.style.left = (x - 25) + 'px';
-            butterfly.style.top = (y - 20) + 'px';
+            butterfly.style.left = (x - 30) + 'px';
+            butterfly.style.top = (y - 25) + 'px';
             
             const leftWing = document.createElement('div');
             leftWing.className = 'butterfly-wing left';
@@ -765,7 +1039,7 @@
             butterfly.appendChild(rightWing);
             
             effectsContainer.appendChild(butterfly);
-            setTimeout(() => effectsContainer.removeChild(butterfly), 3000);
+            setTimeout(() => effectsContainer.removeChild(butterfly), 3500);
             
             playButterflySound();
         }
@@ -779,21 +1053,30 @@
             circle.style.marginTop = '0px';
             
             effectsContainer.appendChild(circle);
-            setTimeout(() => effectsContainer.removeChild(circle), 2000);
+            setTimeout(() => effectsContainer.removeChild(circle), 2500);
             
             playClickSound();
         }
         
-        // Main click handler - Random effects
+        function createDiamond(x, y) {
+            const diamond = document.createElement('div');
+            diamond.className = 'diamond';
+            diamond.style.left = (x - 20) + 'px';
+            diamond.style.top = (y - 25) + 'px';
+            
+            effectsContainer.appendChild(diamond);
+            setTimeout(() => effectsContainer.removeChild(diamond), 2000);
+            
+            playDiamondSound();
+        }
+        
         function handleClick(x, y) {
-            // Hide touch instruction on first click
             const instruction = document.getElementById('touchInstruction');
             if (!instruction.classList.contains('hidden')) {
                 instruction.classList.add('hidden');
             }
             
-            // Randomly choose effect type
-            const effectTypes = ['flower', 'heart', 'star', 'butterfly', 'circle', 'multiple'];
+            const effectTypes = ['flower', 'heart', 'star', 'butterfly', 'circle', 'diamond', 'multiple', 'superMultiple'];
             const randomEffect = effectTypes[Math.floor(Math.random() * effectTypes.length)];
             
             switch(randomEffect) {
@@ -812,35 +1095,46 @@
                 case 'circle':
                     createCirclePulse(x, y);
                     break;
+                case 'diamond':
+                    createDiamond(x, y);
+                    break;
                 case 'multiple':
-                    // Create multiple effects at once!
                     createFlower(x, y);
-                    setTimeout(() => createHeart(x + 30, y - 30), 100);
-                    setTimeout(() => createStar(x - 30, y + 30), 200);
+                    setTimeout(() => createHeart(x + 40, y - 40), 120);
+                    setTimeout(() => createStar(x - 40, y + 40), 240);
+                    playMagicChime();
+                    break;
+                case 'superMultiple':
+                    createFlower(x, y);
+                    setTimeout(() => createHeart(x + 50, y), 100);
+                    setTimeout(() => createStar(x - 50, y), 200);
+                    setTimeout(() => createButterfly(x, y + 50), 300);
+                    setTimeout(() => createDiamond(x, y - 50), 400);
+                    playMagicChime();
                     break;
             }
             
-            // Always add particles, sparkles, ripples and color burst
-            for (let i = 0; i < 20; i++) {
+            for (let i = 0; i < 25; i++) {
                 particles.push(new Particle(x, y));
             }
             
-            for (let i = 0; i < 10; i++) {
-                sparkles.push(new Sparkle(x + (Math.random() - 0.5) * 30, y + (Math.random() - 0.5) * 30));
+            for (let i = 0; i < 15; i++) {
+                sparkles.push(new Sparkle(x + (Math.random() - 0.5) * 40, y + (Math.random() - 0.5) * 40));
             }
             
-            ripples.push(new Ripple(x, y, 'rgba(255, 255, 255, 0.7)'));
-            ripples.push(new Ripple(x, y, 'rgba(255, 107, 157, 0.5)'));
+            ripples.push(new Ripple(x, y, 'rgba(255, 255, 255, 0.8)'));
+            ripples.push(new Ripple(x, y, 'rgba(255, 20, 147, 0.6)'));
+            ripples.push(new Ripple(x, y, 'rgba(255, 215, 0, 0.5)'));
             
             colorBursts.push(new ColorBurst(x, y));
             
-            // Sparkle sounds
-            setTimeout(() => playSparkle(), 50);
-            setTimeout(() => playSparkle(), 150);
-            setTimeout(() => playSparkle(), 250);
+            trails.push(new Trail(x, y));
+            
+            setTimeout(() => playSparkle(), 60);
+            setTimeout(() => playSparkle(), 180);
+            setTimeout(() => playSparkle(), 300);
         }
         
-        // Click/Touch events
         canvas.addEventListener('click', (e) => {
             handleClick(e.clientX, e.clientY);
         });
@@ -851,7 +1145,6 @@
             handleClick(touch.clientX, touch.clientY);
         }, { passive: false });
         
-        // Drag effects
         let isDragging = false;
         let dragCounter = 0;
         
@@ -865,8 +1158,9 @@
                 if (dragCounter % 2 === 0) {
                     particles.push(new Particle(e.clientX, e.clientY));
                     sparkles.push(new Sparkle(e.clientX, e.clientY));
+                    trails.push(new Trail(e.clientX, e.clientY));
                 }
-                if (dragCounter % 5 === 0) {
+                if (dragCounter % 6 === 0) {
                     playSparkle();
                 }
             }
@@ -876,7 +1170,8 @@
             e.preventDefault();
             const touch = e.touches[0];
             particles.push(new Particle(touch.clientX, touch.clientY));
-            if (Math.random() < 0.3) {
+            trails.push(new Trail(touch.clientX, touch.clientY));
+            if (Math.random() < 0.4) {
                 sparkles.push(new Sparkle(touch.clientX, touch.clientY));
             }
         }, { passive: false });
